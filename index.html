@@ -249,9 +249,9 @@ h3{font-size:1.2rem;letter-spacing:-.015em;margin:0 0 8px;font-weight:700}
   .hx-bar label{flex-basis:auto}
 }
 
-.fcc-frame,.raps-frame{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:clamp(16px,3vw,32px);overflow:hidden}
-.fcc-frame iframe,.raps-frame iframe{display:block;width:100%;border:0;height:1400px;background:transparent;color-scheme:normal}
-@media (max-width:600px){.fcc-frame,.raps-frame{border-radius:14px;margin-inline:-6px}}
+.fcc-frame,.raps-frame,.axa-frame{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:clamp(16px,3vw,32px);overflow:hidden}
+.fcc-frame iframe,.raps-frame iframe,.axa-frame iframe{display:block;width:100%;border:0;height:1400px;background:transparent;color-scheme:normal}
+@media (max-width:600px){.fcc-frame,.raps-frame,.axa-frame{border-radius:14px;margin-inline:-6px}}
 
 .vertrieb-frame{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;position:relative}
 .vertrieb-frame iframe{display:block;width:100%;border:0;height:calc(100svh - 150px);min-height:560px;max-height:1000px;background:transparent;color-scheme:normal}
@@ -3940,6 +3940,477 @@ renderAll(false);
     </section>
   </div>
 
+  <!-- ============ DETALLE: DASHBOARD AXA ============ -->
+  <div class="view" id="view-dashboard-axa">
+    <div class="page-head">
+      <div class="wrap">
+        <button class="back" data-nav="proyectos">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+          Volver a proyectos
+        </button>
+        <h1 style="word-break:break-word">Dashboard AXA</h1>
+        <p>Tablero de control de la innovación basada en datos del Data Innovation Lab de AXA Alemania: aprobación de cumplimiento, tiempo de análisis y calidad de datos.</p>
+        <div class="detail-meta">
+          <span class="tag">SVG</span><span class="tag">3 KPIs</span><span class="tag">Innovación basada en datos</span><span class="tag">2016–2018</span>
+        </div>
+      </div>
+    </div>
+    <section class="block" style="padding-top:clamp(40px,6vw,64px)">
+      <div class="wrap">
+        <!-- El dashboard AXA va aislado en un iframe para que sus estilos y scripts no choquen con el resto del sitio -->
+        <div class="axa-frame">
+          <iframe id="axa-frame" title="Dashboard AXA" loading="lazy" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;title&gt;AXA Alemania · Tablero de innovación basada en datos&lt;/title&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#13233F; --muted:#5A6781; --line:#D5DBE5;
+  --accent:#23409A; --accent-soft:#E2E8F6;
+  --ok:#1E7A57; --warn:#B47D12; --bad:#B23F2B;
+  --ok-band:#D9EEE5; --warn-band:#F6E9CD; --bad-band:#F4DAD4;
+  --font:&quot;Public Sans&quot;, &quot;Segoe UI&quot;, system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme=&quot;light&quot;]){
+    --bg:#0F1726; --surface:#172238; --ink:#E7ECF5; --muted:#9BA8C0; --line:#2B3954;
+    --accent:#8FA9F2; --accent-soft:#22325A;
+    --ok:#5CC79B; --warn:#E3B04E; --bad:#EE7F68;
+    --ok-band:#173A30; --warn-band:#3D3219; --bad-band:#43231F;
+    color-scheme: dark;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.5;font-variant-numeric:tabular-nums}
+.wrap{max-width:1240px;margin:0 auto;padding:28px 24px 48px}
+header.top{display:grid;grid-template-columns:1fr auto;gap:16px 32px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:18px}
+.org{font-weight:600;color:var(--accent);font-size:14px;margin:0 0 4px}
+h1{font-size:clamp(26px,3.4vw,38px);line-height:1.1;margin:0;font-weight:800;letter-spacing:-0.02em;max-width:22ch}
+.lede{margin:10px 0 0;color:var(--muted);max-width:68ch}
+.cut{text-align:right;color:var(--muted);font-size:13px}
+.cut strong{display:block;color:var(--ink);font-size:22px;font-weight:700}
+.filters{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:end;margin:20px 0 26px}
+.filters label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+select,button{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 10px;min-width:150px}
+button{min-width:0;cursor:pointer;font-weight:600}
+button.primary{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+select:focus-visible,button:focus-visible,.pt:focus-visible,.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.spacer{flex:1}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.kpi{padding:22px 22px 18px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-width:0}
+.kpi:first-child{border-left:0}
+.kpi .who{font-size:13px;color:var(--muted);margin:0}
+.kpi h2{font-size:18px;margin:0;line-height:1.25}
+.kpi .q{margin:0;color:var(--muted);font-size:14px}
+.valrow{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.val{font-size:46px;font-weight:800;letter-spacing:-0.03em;line-height:1}
+.unit{font-size:16px;color:var(--muted);font-weight:600}
+.pill{font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;border:1.5px solid currentColor}
+.s-ok{color:var(--ok)} .s-warn{color:var(--warn)} .s-bad{color:var(--bad)} .s-na{color:var(--muted)}
+.delta{font-size:13px;color:var(--muted)}
+.delta b{color:var(--ink)}
+.bullet svg,.trend svg{display:block;width:100%;height:auto;overflow:visible}
+.trend{margin-top:4px}
+.support{display:flex;gap:18px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;flex-wrap:wrap}
+.support b{color:var(--ink);font-size:15px}
+.pt{cursor:pointer}
+.axis text{fill:var(--muted);font-size:10px}
+.grid line{stroke:var(--line)}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12px;padding:6px 9px;border-radius:5px;opacity:0;transition:opacity .12s;z-index:20;max-width:240px}
+section.detail{margin-top:28px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.panel h3{margin:0 0 4px;font-size:17px}
+.panel p.sub{margin:0 0 14px;color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:transparent;padding:6px 12px;border-radius:6px;font-size:13px;font-weight:600;color:var(--muted)}
+.tab[aria-selected=&quot;true&quot;]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.bars text{font-size:12px;fill:var(--ink)}
+.bars .lbl{fill:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 6px;text-align:right;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600}
+td .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:currentColor}
+.reading{margin-top:24px}
+.reading ul{margin:8px 0 0;padding-left:18px}
+.reading li{margin:6px 0;max-width:80ch}
+footer{margin-top:28px;font-size:12px;color:var(--muted);max-width:90ch}
+footer p{margin:6px 0}
+.empty{color:var(--muted);font-style:italic}
+@media (max-width:960px){
+  .kpis{grid-template-columns:1fr}
+  .kpi{border-left:0;border-top:1px solid var(--line)}
+  .kpi:first-child{border-top:0}
+  section.detail{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  header.top{grid-template-columns:1fr}
+  .cut{text-align:left}
+  select{min-width:0;width:100%}
+  .filters label{flex:1 1 45%}
+}
+@media print{
+  body{background:#fff}
+  .filters button,.tabs{display:none}
+  .kpis,.panel{break-inside:avoid}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+/* ===== Estilo del portafolio ===== */
+:root{ --bg:#f5f8fb; --surface:#ffffff; --ink:#0a2540; --muted:#4b5f77; --line:#dfe6ee;
+  --accent:#00a383; --accent-soft:#d9f7ef; --teal:#00d4aa;
+  --ok:#0f8a6c; --warn:#c48a10; --bad:#c2364a;
+  --ok-band:#d9f2ea; --warn-band:#f7ecd2; --bad-band:#f6dde1;
+  --font:&quot;Inter&quot;, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif; padding-top:0; padding-bottom:0; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme=&quot;light&quot;]){ --bg:#0a2540; --surface:#0c2b4a; --ink:#eef4fa; --muted:#a9bed6; --line:#1d3f63;
+    --accent:#00d4aa; --accent-soft:#0e3b44; --teal:#00d4aa;
+    --ok:#3ee0b8; --warn:#e0b24f; --bad:#f08a96;
+    --ok-band:#123f3f; --warn-band:#3a3420; --bad-band:#45263a; color-scheme:dark; } }
+:root[data-theme=&quot;dark&quot;]{ --bg:#0a2540; --surface:#0c2b4a; --ink:#eef4fa; --muted:#a9bed6; --line:#1d3f63;
+    --accent:#00d4aa; --accent-soft:#0e3b44; --teal:#00d4aa;
+    --ok:#3ee0b8; --warn:#e0b24f; --bad:#f08a96;
+    --ok-band:#123f3f; --warn-band:#3a3420; --bad-band:#45263a; color-scheme:dark; }
+body{-webkit-font-smoothing:antialiased}
+.wrap{max-width:none;padding:0}
+.org,header.top h1{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+header.top{border-bottom:3px solid var(--teal);align-items:center}
+.lede{margin-top:0;font-size:15.5px;line-height:1.6}
+.filters{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+select,button{border-radius:10px}
+select:focus-visible,button:focus-visible,.pt:focus-visible,.tab:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,212,170,.3);border-color:var(--teal)}
+button:hover{border-color:var(--teal)}
+button.primary{background:var(--teal);color:#0a2540;border-color:var(--teal);font-weight:700}
+.kpis{border-radius:12px;border-top:3px solid var(--teal)}
+.panel{border-radius:12px}
+.tab{border-radius:999px}
+.tab[aria-selected=&quot;true&quot;]{background:var(--ink);color:var(--surface)}
+.val{font-weight:800}
+@media (max-width:600px){
+  .spacer{display:none}
+  .filters button{flex:1 1 45%}
+  .kpi{padding:18px 16px 16px}
+  .val{font-size:40px}
+  .panel{padding:16px}
+  table{font-size:12.5px}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;wrap&quot;&gt;
+  &lt;header class=&quot;top&quot;&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;org&quot;&gt;AXA Alemania · Data Innovation Lab&lt;/p&gt;
+      &lt;h1&gt;Tablero de control de la innovación basada en datos&lt;/h1&gt;
+      &lt;p class=&quot;lede&quot;&gt;Tres indicadores para vigilar las “dos velocidades” del laboratorio: qué tan rápido aprueba cumplimiento, cuánto tiempo dedican los científicos de datos a analizar y qué tan confiables son los datos que usan.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cut&quot;&gt;Trimestre de corte&lt;strong id=&quot;cutLabel&quot;&gt;—&lt;/strong&gt;&lt;span id=&quot;cutCount&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;div class=&quot;filters&quot; role=&quot;group&quot; aria-label=&quot;Filtros&quot;&gt;
+    &lt;label&gt;Línea de negocio&lt;select id=&quot;fLine&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;label&gt;Unidad líder del Lab&lt;select id=&quot;fUnit&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;label&gt;Iniciativa&lt;select id=&quot;fInit&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;label&gt;Trimestre de corte&lt;select id=&quot;fCut&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;span class=&quot;spacer&quot;&gt;&lt;/span&gt;
+    &lt;button id=&quot;reset&quot; type=&quot;button&quot;&gt;Restablecer filtros&lt;/button&gt;
+    &lt;button id=&quot;dl&quot; class=&quot;primary&quot; type=&quot;button&quot;&gt;Descargar resumen CSV&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;kpis&quot; id=&quot;kpis&quot;&gt;&lt;/div&gt;
+
+  &lt;section class=&quot;detail&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h3&gt;Desempeño por iniciativa&lt;/h3&gt;
+      &lt;p class=&quot;sub&quot; id=&quot;barSub&quot;&gt;Promedio del trimestre de corte. La línea vertical marca la meta.&lt;/p&gt;
+      &lt;div class=&quot;tabs&quot; role=&quot;tablist&quot; id=&quot;tabs&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;bars&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h3&gt;Por línea de negocio&lt;/h3&gt;
+      &lt;p class=&quot;sub&quot;&gt;Trimestre de corte, con los filtros de unidad e iniciativa aplicados.&lt;/p&gt;
+      &lt;div id=&quot;lineTable&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;reading&quot;&gt;
+        &lt;h3&gt;Lectura rápida&lt;/h3&gt;
+        &lt;ul id=&quot;reading&quot;&gt;&lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&lt;b&gt;Definiciones.&lt;/b&gt; Ciclo de aprobación: días promedio desde que se envía una solicitud de acceso a datos hasta la decisión del grupo de trabajo de cumplimiento y riesgo. Tiempo de análisis: horas de análisis ÷ (horas de análisis + horas de recolección) de los científicos de datos, ponderado por horas. Calidad de datos: índice compuesto 0–100 (exactitud, completitud, consistencia y oportunidad), promedio simple.&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Metas y semáforo.&lt;/b&gt; Ciclo ≤ 7 días (verde), ≤ 10 (ámbar). Tiempo de análisis ≥ 60 % (verde, proporción 60:40), ≥ 45 % (ámbar). Calidad ≥ 85 (verde), ≥ 70 (ámbar). La línea punteada vertical en las tendencias marca la entrada en vigor del GDPR (mayo 2018).&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Fuente.&lt;/b&gt; AXAGermanyData.csv (339 registros mensuales, ene 2016 – dic 2018, 11 iniciativas) y el caso “Innovación de datos @ AXA Alemania” (Scheffler y Wirths, 2019). Haga clic en cualquier punto de una tendencia para cambiar el trimestre de corte.&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tip&quot; id=&quot;tip&quot; role=&quot;tooltip&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+const RAW = [[1,2016,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,19.4,16.2,70.7,5.0,44.3,10.7,22.4],[2,2016,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,18.5,19.6,49.1,11.8,28.9,26.2,19.1],[3,2016,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,20.5,14.6,109.5,29.9,44.6,17.4,21.0],[4,2016,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,18.2,15.4,76.3,21.2,23.9,18.8,24.4],[5,2016,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,16.8,16.2,45.4,20.1,38.7,27.0,21.8],[6,2016,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,19.5,14.9,128.8,20.2,34.9,38.0,16.4],[7,2016,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,11.4,10.2,66.8,45.1,41.8,11.1,26.3],[8,2016,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,14.1,10.2,67.0,35.6,59.8,24.5,18.0],[9,2016,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,14.4,13.6,84.3,47.0,43.1,19.2,18.4],[10,2016,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,12.9,14.4,96.8,26.8,56.1,39.5,22.6],[11,2016,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,14.7,15.5,68.2,32.6,54.8,31.7,21.3],[12,2016,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,8.7,8.3,55.0,64.6,48.9,5.0,14.9],[13,2017,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,12.5,14.8,83.2,54.2,51.2,38.9,18.1],[14,2017,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,12.6,16.2,72.0,46.6,58.3,49.1,18.1],[15,2017,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,11.8,9.4,94.9,59.9,63.9,33.2,18.3],[16,2017,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,11.7,14.1,61.1,43.8,51.0,41.2,17.1],[17,2017,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,11.2,9.2,73.1,43.2,63.2,47.9,22.4],[18,2017,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,6.8,11.8,52.4,22.1,55.5,43.2,18.1],[19,2017,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,11.5,12.8,100.7,60.7,56.7,45.5,6.8],[20,2017,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,7.7,9.0,49.2,76.3,52.7,43.9,10.9],[21,2017,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,8.8,14.4,23.2,35.5,67.9,36.8,14.8],[22,2017,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,6.3,12.9,82.8,38.7,50.3,57.3,21.6],[23,2017,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,10.6,5.5,15.9,42.4,56.5,43.9,9.5],[24,2017,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,8.9,17.1,74.9,55.2,59.0,51.9,12.4],[25,2018,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,7.2,7.0,74.7,53.5,71.6,61.4,12.9],[26,2018,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,6.4,10.8,95.3,58.0,69.2,61.6,8.3],[27,2018,1,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,7.9,10.1,69.3,51.3,58.3,42.1,19.0],[28,2018,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,6.4,4.3,80.4,81.3,66.4,30.0,10.8],[29,2018,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,3.0,4.9,60.5,52.1,59.9,46.7,11.3],[30,2018,2,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,8.3,2.8,77.1,64.1,74.6,56.4,14.6],[31,2018,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,5.4,12.1,55.6,36.7,83.0,83.1,12.2],[32,2018,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,7.3,8.6,35.0,43.0,67.6,64.9,6.0],[33,2018,3,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,10.7,3.0,72.9,41.4,74.2,48.9,6.9],[34,2018,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,6.6,8.8,82.5,58.0,77.5,68.7,2.9],[35,2018,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,7.4,3.2,61.5,77.7,79.3,54.0,9.8],[36,2018,4,&quot;P_C&quot;,&quot;fraud_detection&quot;,&quot;Data_Analytics&quot;,8.9,2.0,73.3,43.4,70.2,78.8,6.1],[1,2016,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,24.6,18.3,100.8,39.0,43.7,8.1,25.2],[2,2016,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,20.0,17.5,98.5,47.7,34.5,23.9,28.4],[3,2016,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,18.3,20.4,91.8,36.5,39.3,27.0,18.1],[4,2016,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,21.9,19.0,42.7,40.0,39.3,15.4,30.5],[5,2016,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,16.0,12.8,78.9,41.8,35.6,23.2,21.6],[6,2016,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,17.8,12.2,47.2,28.3,36.8,32.4,19.4],[7,2016,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,11.6,14.6,62.9,50.7,42.7,23.7,18.6],[8,2016,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,17.2,18.0,73.6,31.9,39.1,44.4,21.8],[9,2016,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,7.1,8.0,118.1,13.1,38.6,12.9,28.5],[10,2016,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,10.6,17.2,88.5,37.7,38.0,17.1,24.6],[11,2016,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,10.4,14.7,60.1,36.4,43.8,32.0,16.7],[12,2016,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,12.5,14.2,84.3,53.1,41.0,26.8,26.7],[13,2017,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,11.6,8.4,60.4,56.6,62.1,40.1,19.9],[14,2017,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,8.8,11.0,124.1,20.9,69.8,45.8,16.7],[15,2017,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,12.7,10.8,92.9,33.6,48.1,18.4,19.1],[16,2017,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,8.2,11.9,62.7,32.7,48.9,25.0,24.0],[17,2017,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,13.4,10.5,60.3,22.7,41.9,43.6,16.5],[18,2017,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,10.3,10.8,50.7,70.2,63.3,22.1,17.5],[19,2017,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,9.4,12.5,78.5,38.0,64.0,44.3,20.4],[20,2017,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,9.2,6.0,79.6,36.8,58.2,54.2,13.8],[21,2017,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,10.0,5.1,78.2,51.9,60.6,28.5,11.9],[22,2017,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,9.6,7.1,90.2,28.0,70.9,57.5,8.1],[23,2017,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,5.3,11.0,61.8,36.2,62.3,61.2,10.0],[24,2017,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,9.1,11.4,73.5,30.0,58.4,71.1,13.5],[25,2018,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,6.3,7.4,80.9,38.2,65.3,67.1,19.7],[26,2018,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,6.9,11.1,91.6,54.6,79.1,58.9,14.9],[27,2018,1,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,6.6,8.9,58.9,56.6,67.2,63.8,7.8],[28,2018,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,3.5,2.0,117.6,45.1,54.5,41.7,16.1],[29,2018,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,5.7,10.2,38.3,57.2,62.7,50.1,10.0],[30,2018,2,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,5.3,9.2,10.0,54.8,58.2,65.1,7.9],[31,2018,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,4.9,7.4,43.4,59.7,72.1,62.5,5.0],[32,2018,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,6.5,7.0,77.0,59.5,82.6,52.8,9.2],[33,2018,3,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,4.2,2.9,46.9,36.0,79.4,57.4,6.5],[34,2018,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,7.8,6.9,87.1,59.6,70.5,84.7,12.3],[35,2018,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,6.6,2.0,89.2,41.6,77.0,70.2,7.3],[36,2018,4,&quot;P_C&quot;,&quot;geospatial_claims&quot;,&quot;Data_Analytics&quot;,8.2,2.0,70.7,56.7,78.0,59.0,5.0],[1,2016,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,17.5,20.8,91.7,46.3,42.4,30.3,28.6],[2,2016,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,19.3,16.1,83.1,42.8,38.9,25.1,22.3],[3,2016,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,19.3,10.3,74.5,33.8,45.8,28.5,24.4],[4,2016,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,22.0,14.4,54.6,29.7,50.3,37.4,26.0],[5,2016,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,18.9,12.8,85.9,50.5,31.1,13.6,19.8],[6,2016,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,18.2,12.6,87.9,59.2,46.3,8.2,25.6],[7,2016,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,13.2,19.5,71.2,76.1,48.5,26.1,18.5],[8,2016,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,14.0,15.9,105.8,20.4,30.6,40.0,14.4],[9,2016,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,11.6,19.5,90.6,21.1,36.6,28.6,18.6],[10,2016,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,7.0,9.4,72.2,8.7,42.7,22.1,17.5],[11,2016,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,11.9,12.8,98.2,37.4,62.4,27.9,20.6],[12,2016,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,10.5,11.6,21.1,49.9,48.2,31.1,23.5],[13,2017,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,12.5,14.3,83.3,28.6,60.1,40.3,20.3],[14,2017,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,8.6,12.1,38.2,51.3,44.3,44.3,17.2],[15,2017,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,7.4,8.3,76.8,47.6,53.5,30.1,21.1],[16,2017,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,12.1,9.7,64.9,6.9,53.1,42.9,16.6],[17,2017,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,3.0,15.3,47.4,62.8,55.5,26.1,15.7],[18,2017,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,8.7,5.9,54.8,56.2,61.4,36.6,15.3],[19,2017,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,11.7,12.9,47.0,56.0,51.9,21.9,16.5],[20,2017,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,12.2,7.7,96.0,70.5,63.5,33.9,16.0],[21,2017,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,14.2,9.7,47.7,54.4,45.0,40.9,14.2],[22,2017,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,6.1,4.9,71.5,29.7,65.2,62.8,15.4],[23,2017,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,8.5,13.6,39.1,70.0,67.3,61.4,11.1],[24,2017,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,7.5,17.8,69.6,31.4,71.2,49.7,19.0],[25,2018,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,6.3,12.4,48.5,35.6,51.7,59.4,2.3],[26,2018,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,8.5,8.7,48.2,46.1,77.4,60.5,6.0],[27,2018,1,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,9.9,5.4,65.8,59.5,74.9,61.8,11.9],[28,2018,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,3.0,7.3,58.6,69.4,77.4,52.2,7.5],[29,2018,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,5.0,10.7,62.4,62.5,77.3,76.6,7.9],[30,2018,2,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,3.0,4.4,44.7,58.3,65.8,59.2,4.2],[31,2018,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,5.7,11.5,97.9,56.7,74.4,78.1,12.4],[32,2018,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,3.0,4.3,58.4,45.1,78.9,58.0,10.1],[33,2018,3,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,5.3,2.0,68.0,69.9,69.6,66.0,11.6],[34,2018,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,3.0,5.1,68.2,67.1,82.3,63.2,6.9],[35,2018,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,7.9,5.9,77.5,62.0,59.9,53.5,7.6],[36,2018,4,&quot;P_C&quot;,&quot;dynamic_pricing&quot;,&quot;Data_Analytics&quot;,3.0,3.4,22.2,88.3,73.7,79.2,15.4],[1,2016,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,12.0,19.9,152.9,5.0,38.3,16.0,21.4],[2,2016,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,20.6,14.9,122.6,5.0,20.0,11.9,24.8],[3,2016,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,20.1,19.3,161.7,8.7,43.6,8.1,23.7],[4,2016,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,17.1,19.9,160.3,27.7,28.6,21.2,26.6],[5,2016,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,15.4,11.9,138.5,12.4,52.5,17.9,22.2],[6,2016,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,17.4,13.1,101.2,30.4,41.1,27.3,27.7],[7,2016,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,8.6,10.7,158.1,20.5,44.5,36.7,23.7],[8,2016,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,11.2,16.5,134.2,22.7,47.3,42.5,24.4],[9,2016,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,12.8,12.2,143.6,26.9,43.1,26.8,21.3],[10,2016,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,11.3,13.7,101.6,15.7,50.8,38.7,17.4],[11,2016,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,7.7,15.2,113.3,5.8,54.5,23.0,19.4],[12,2016,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,6.7,8.7,113.9,52.6,42.0,48.6,17.9],[13,2017,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,9.9,16.4,101.7,30.6,42.6,29.2,23.3],[14,2017,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,8.2,9.0,74.9,16.0,46.5,38.9,17.3],[15,2017,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,13.2,26.5,98.2,13.3,51.3,22.0,16.3],[16,2017,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,10.2,12.9,134.5,39.1,56.2,37.8,17.9],[17,2017,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,7.0,10.4,113.8,57.7,57.8,39.9,18.4],[18,2017,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,8.2,13.8,100.9,5.0,48.1,54.2,15.0],[19,2017,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,10.4,15.8,109.1,29.8,61.9,45.3,11.9],[20,2017,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,10.2,9.9,136.3,8.8,46.6,55.8,13.1],[21,2017,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,8.7,9.3,109.6,54.4,56.1,35.0,13.3],[22,2017,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,12.8,15.1,99.4,33.8,54.5,42.4,14.8],[23,2017,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,7.5,15.7,129.3,40.6,64.8,51.0,18.5],[24,2017,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,6.2,7.9,67.4,12.7,66.7,38.1,15.3],[25,2018,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,8.0,8.0,104.1,20.4,60.8,48.9,12.2],[26,2018,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,7.2,8.0,94.7,15.5,59.0,62.4,10.5],[27,2018,1,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,8.6,7.1,72.4,43.0,64.8,52.4,13.9],[28,2018,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,3.2,9.0,108.5,34.9,53.6,64.1,3.5],[29,2018,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,10.8,9.4,83.1,43.5,77.1,41.3,17.8],[30,2018,2,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,3.3,7.4,116.0,33.3,72.5,70.1,5.0],[31,2018,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,9.3,7.7,110.1,22.2,86.1,73.2,4.5],[32,2018,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,5.2,3.9,44.9,53.3,71.7,56.7,7.8],[33,2018,3,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,4.6,7.7,88.6,73.0,60.7,75.0,9.9],[34,2018,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,9.0,6.9,128.1,45.7,65.1,52.3,7.4],[35,2018,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,3.0,5.2,110.1,59.4,71.5,58.2,6.5],[36,2018,4,&quot;P_C&quot;,&quot;claims_automation&quot;,&quot;Data_Engineering&quot;,10.4,4.1,78.4,23.9,87.7,71.1,11.1],[13,2017,1,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,10.5,14.4,88.5,61.6,46.7,60.8,20.6],[14,2017,1,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,11.6,16.3,76.3,75.8,60.6,40.7,23.4],[15,2017,1,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,11.0,10.3,81.2,31.7,33.0,13.7,16.1],[16,2017,2,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,12.9,11.8,75.3,28.3,65.3,36.0,6.6],[17,2017,2,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,8.5,9.8,97.3,36.0,60.2,25.2,9.7],[18,2017,2,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,9.0,7.8,112.0,43.6,73.1,23.7,11.8],[19,2017,3,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,13.8,15.5,69.5,60.9,46.0,25.0,16.0],[20,2017,3,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,9.8,10.6,60.4,34.6,60.6,32.3,16.1],[21,2017,3,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,13.5,11.8,65.1,43.5,66.2,51.3,15.3],[22,2017,4,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,11.5,6.8,72.5,76.9,68.6,34.3,15.4],[23,2017,4,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,7.5,10.6,85.0,40.8,59.0,59.4,11.2],[24,2017,4,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,10.6,11.3,71.3,51.3,70.8,39.6,16.3],[25,2018,1,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,5.3,11.2,50.4,52.1,76.3,56.1,14.9],[26,2018,1,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,15.6,3.5,102.2,27.3,84.7,52.2,11.6],[27,2018,1,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,8.4,7.0,82.1,53.2,72.8,57.0,10.3],[28,2018,2,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,7.8,5.1,66.8,38.9,68.5,48.9,14.3],[29,2018,2,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,4.4,6.5,72.0,61.6,65.9,54.7,11.7],[30,2018,2,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,4.3,2.0,81.0,40.3,75.1,60.3,2.1],[31,2018,3,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,9.2,7.1,81.2,37.3,60.4,57.7,8.2],[32,2018,3,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,4.7,10.7,60.1,35.9,77.3,76.0,4.6],[33,2018,3,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,5.1,8.9,59.6,67.0,79.4,77.8,5.9],[34,2018,4,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,4.5,6.5,69.0,50.2,83.8,79.9,10.8],[35,2018,4,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,5.4,4.4,57.7,70.7,84.6,57.4,10.9],[36,2018,4,&quot;P_C&quot;,&quot;customer_dialog_system&quot;,&quot;Data_Analytics&quot;,4.0,2.5,34.2,68.0,85.5,74.4,8.7],[1,2016,1,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,15.9,17.9,91.6,11.7,39.0,31.1,18.5],[2,2016,1,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,13.3,23.1,95.5,18.7,37.6,5.0,22.7],[3,2016,1,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,16.9,16.6,124.4,14.0,26.0,18.9,21.3],[4,2016,2,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,17.9,15.2,92.6,47.3,34.3,23.0,26.1],[5,2016,2,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,18.4,16.8,108.3,20.5,47.5,18.5,19.4],[6,2016,2,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,19.6,15.1,113.4,33.3,42.8,35.4,20.5],[7,2016,3,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,10.6,15.4,126.5,23.3,34.6,19.6,27.2],[8,2016,3,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,11.7,5.0,83.4,46.0,41.5,26.4,22.4],[9,2016,3,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,7.1,13.1,70.4,31.7,46.7,40.0,20.1],[10,2016,4,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,17.4,16.9,86.9,57.7,41.3,25.8,19.7],[11,2016,4,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,10.7,9.8,75.6,36.8,38.8,14.5,19.8],[12,2016,4,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,5.0,16.0,90.3,68.1,56.2,32.9,23.7],[13,2017,1,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,6.5,15.6,88.5,56.8,50.9,5.5,20.9],[14,2017,1,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,7.1,13.0,58.9,40.7,43.2,15.8,17.6],[15,2017,1,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,9.1,10.2,121.1,36.9,50.3,31.8,13.0],[16,2017,2,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,10.4,11.8,55.0,32.0,51.5,38.8,16.6],[17,2017,2,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,10.2,12.8,74.1,44.5,63.0,43.7,25.6],[18,2017,2,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,8.2,12.3,64.0,28.7,56.9,35.3,16.9],[19,2017,3,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,10.7,11.0,80.8,32.4,56.6,54.7,17.0],[20,2017,3,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,8.7,6.9,72.0,30.9,55.9,50.4,18.5],[21,2017,3,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,11.3,5.7,70.8,62.6,62.3,45.2,18.4],[22,2017,4,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,11.4,8.2,44.9,25.2,63.8,60.7,15.2],[23,2017,4,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,9.8,13.4,69.1,50.5,66.2,58.5,8.0],[24,2017,4,&quot;P_C&quot;,&quot;flood_risk_modeling&quot;,&quot;Data_Analytics&quot;,3.0,5.5,78.1,46.9,54.2,41.4,7.6],[7,2016,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,15.6,15.8,113.5,50.5,33.3,45.2,23.2],[8,2016,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,7.4,14.5,82.1,42.9,39.8,30.7,23.3],[9,2016,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,10.0,14.6,99.6,31.6,39.1,30.7,20.8],[10,2016,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,11.5,12.9,100.0,31.5,53.3,28.1,24.8],[11,2016,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,9.1,17.7,101.5,30.8,57.4,19.0,19.6],[12,2016,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,12.0,8.2,55.5,9.8,56.1,26.2,7.3],[13,2017,1,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,8.8,14.6,92.8,36.1,48.6,25.4,26.9],[14,2017,1,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,9.9,14.7,91.5,29.8,47.2,50.7,15.2],[15,2017,1,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,13.5,16.2,89.2,41.2,48.0,33.5,22.5],[16,2017,2,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,10.1,10.4,66.8,67.3,51.8,38.2,4.3],[17,2017,2,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,8.4,12.8,59.2,53.1,58.5,60.5,24.6],[18,2017,2,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,9.5,7.1,90.5,44.8,48.8,48.5,16.1],[19,2017,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,4.5,9.0,110.7,34.7,54.7,43.0,15.0],[20,2017,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,12.3,11.1,69.5,34.1,52.0,51.3,13.9],[21,2017,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,9.4,10.0,84.1,45.3,73.0,44.5,11.0],[22,2017,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,6.8,10.8,70.8,50.7,50.6,47.2,7.3],[23,2017,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,8.8,10.6,75.8,34.1,59.2,57.0,12.8],[24,2017,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,6.7,10.7,74.1,66.1,74.4,59.3,13.6],[25,2018,1,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,7.6,9.1,78.4,45.5,63.0,74.0,16.1],[26,2018,1,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,8.1,10.7,40.4,48.9,76.2,61.9,15.9],[27,2018,1,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,3.0,12.6,90.1,83.3,59.8,59.9,2.5],[28,2018,2,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,9.0,2.0,59.9,64.5,61.8,52.8,9.2],[29,2018,2,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,3.0,14.0,86.6,54.6,68.1,33.8,3.8],[30,2018,2,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,7.7,2.0,86.2,24.1,57.5,58.3,6.7],[31,2018,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,3.0,4.7,64.0,45.6,62.2,62.9,10.4],[32,2018,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,6.0,6.6,49.0,36.0,77.4,63.8,6.1],[33,2018,3,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,5.9,5.7,55.6,67.4,66.4,67.0,4.5],[34,2018,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,6.6,2.2,62.4,65.8,82.6,69.9,9.8],[35,2018,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,3.0,4.0,43.9,41.9,80.4,67.1,2.0],[36,2018,4,&quot;Protection_Health&quot;,&quot;cross_selling_retention&quot;,&quot;Data_Analytics&quot;,4.7,2.0,67.1,75.8,78.3,71.2,5.2],[19,2017,3,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,11.8,13.6,101.8,56.8,77.3,26.4,20.4],[20,2017,3,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,10.5,2.0,68.1,51.4,66.7,63.1,17.0],[21,2017,3,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,7.4,11.1,64.3,56.8,54.8,31.2,12.5],[22,2017,4,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,5.5,12.7,46.3,36.8,67.0,43.9,17.1],[23,2017,4,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,10.2,5.7,67.3,26.8,54.8,52.3,14.5],[24,2017,4,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,8.5,8.9,34.9,42.1,63.7,45.8,13.9],[25,2018,1,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,7.4,6.3,50.7,57.1,61.1,58.7,2.0],[26,2018,1,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,6.3,6.8,66.8,58.3,78.9,41.6,7.5],[27,2018,1,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,12.7,2.3,62.3,43.2,58.4,66.4,5.6],[28,2018,2,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,5.2,6.2,42.9,54.0,73.8,53.2,3.1],[29,2018,2,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,3.0,5.6,43.1,57.6,65.6,51.5,6.7],[30,2018,2,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,9.2,3.5,69.8,50.3,65.0,40.3,9.9],[31,2018,3,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,7.6,7.7,39.8,34.9,71.3,47.8,13.4],[32,2018,3,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,6.3,2.0,32.7,64.4,79.2,69.4,10.0],[33,2018,3,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,6.9,5.1,64.7,64.3,85.0,58.7,8.5],[34,2018,4,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,5.7,2.5,60.9,49.2,84.2,65.7,11.1],[35,2018,4,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,7.4,5.4,90.7,92.2,93.3,59.1,12.4],[36,2018,4,&quot;Protection_Health&quot;,&quot;chronic_disease_prevention&quot;,&quot;Data_Analytics&quot;,3.0,3.3,95.1,75.8,75.2,78.0,7.2],[4,2016,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,18.5,21.9,57.4,53.4,46.9,40.5,26.3],[5,2016,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,21.2,17.2,56.2,26.9,43.6,32.0,18.8],[6,2016,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,17.6,22.6,57.5,31.9,41.2,28.2,19.0],[7,2016,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.4,17.5,122.1,37.2,34.7,45.2,22.7],[8,2016,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,8.6,15.1,75.6,31.0,43.7,38.0,22.3],[9,2016,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.6,19.5,61.6,46.1,43.9,52.4,15.1],[10,2016,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,10.1,10.8,88.9,5.6,50.1,32.2,22.4],[11,2016,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,12.5,17.7,117.1,56.9,51.0,44.5,18.5],[12,2016,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,9.4,16.4,85.7,44.8,55.2,61.6,15.2],[13,2017,1,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.4,20.0,43.1,7.6,54.8,50.6,14.6],[14,2017,1,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.7,15.8,57.9,17.0,73.9,53.8,12.9],[15,2017,1,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,10.3,13.4,98.6,29.2,69.7,46.8,7.4],[16,2017,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,9.7,10.6,58.6,34.9,67.1,59.0,10.5],[17,2017,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.0,13.3,45.8,46.3,70.1,44.5,21.2],[18,2017,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,9.5,14.1,77.7,49.5,79.1,50.9,14.5],[19,2017,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.4,16.0,50.6,29.2,67.2,65.0,10.6],[20,2017,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.3,10.0,92.6,45.1,65.9,54.2,21.6],[21,2017,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,11.1,13.2,64.0,47.7,77.9,78.5,13.1],[22,2017,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,10.4,14.8,82.2,58.4,76.0,46.7,9.6],[23,2017,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,7.5,17.5,72.6,46.9,58.2,62.1,13.3],[24,2017,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,5.8,15.3,77.5,27.1,80.3,51.5,14.8],[25,2018,1,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,5.7,10.4,88.1,43.7,63.8,73.4,10.2],[26,2018,1,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,3.3,12.5,32.7,46.4,75.1,44.6,15.6],[27,2018,1,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,8.3,14.2,45.8,42.6,84.7,65.3,16.6],[28,2018,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,5.7,15.7,60.3,74.8,81.1,50.9,7.3],[29,2018,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,4.9,9.8,84.2,45.3,80.7,66.3,6.7],[30,2018,2,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,6.9,8.3,70.1,43.6,73.9,90.0,11.4],[31,2018,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,3.6,12.3,93.3,63.6,85.8,86.0,8.2],[32,2018,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,7.7,11.8,107.2,56.8,72.7,71.5,15.2],[33,2018,3,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,6.1,7.6,59.0,58.2,82.2,65.2,8.0],[34,2018,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,7.1,2.9,58.5,53.0,72.4,57.9,12.7],[35,2018,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,6.3,3.1,75.7,30.3,95.0,77.3,2.0],[36,2018,4,&quot;Savings_Asset_Mgmt&quot;,&quot;customer_segmentation&quot;,&quot;Data_Management_Office&quot;,4.6,12.1,52.5,74.7,81.1,79.4,9.1],[7,2016,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,15.6,14.0,94.7,7.4,48.8,22.0,20.4],[8,2016,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,17.9,20.6,80.5,59.4,43.2,43.2,14.3],[9,2016,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,16.5,13.2,132.4,34.1,37.6,29.6,19.2],[10,2016,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,11.3,12.3,85.8,46.9,69.3,35.8,22.4],[11,2016,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,14.3,10.1,105.9,29.0,49.8,47.3,21.3],[12,2016,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,11.2,12.9,78.0,38.0,57.3,33.2,21.6],[13,2017,1,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,14.1,16.2,43.2,36.6,67.8,38.4,14.5],[14,2017,1,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,14.8,19.7,91.3,48.5,38.4,50.9,14.0],[15,2017,1,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,9.7,16.9,76.6,32.8,59.2,23.7,18.3],[16,2017,2,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,13.1,9.8,53.8,24.8,61.3,33.2,14.6],[17,2017,2,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,14.9,13.6,71.4,50.1,41.7,43.3,12.8],[18,2017,2,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,9.4,11.8,55.6,56.7,66.3,44.7,8.9],[19,2017,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,15.9,12.5,79.7,16.5,63.5,64.2,21.2],[20,2017,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,15.5,19.2,88.0,46.2,70.9,51.2,16.5],[21,2017,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,11.1,9.1,82.2,78.6,71.1,37.1,5.0],[22,2017,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,11.0,8.2,44.8,25.6,77.3,55.5,12.5],[23,2017,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,5.4,13.3,84.6,43.7,84.0,50.9,13.0],[24,2017,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,11.0,18.0,106.4,42.9,62.8,52.4,11.3],[25,2018,1,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,7.9,11.6,102.9,53.3,67.0,62.8,5.6],[26,2018,1,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,9.0,6.3,85.1,18.9,64.6,55.7,9.8],[27,2018,1,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,8.4,7.6,68.4,59.0,66.4,65.1,5.6],[28,2018,2,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,11.8,19.2,61.0,37.3,79.0,62.0,17.9],[29,2018,2,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,5.2,5.4,89.1,32.4,85.0,64.8,13.3],[30,2018,2,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,9.0,11.4,50.9,56.9,94.6,67.1,8.5],[31,2018,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,9.2,3.9,85.4,46.6,79.7,77.4,13.3],[32,2018,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,10.1,13.5,88.2,71.6,84.0,90.0,2.0],[33,2018,3,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,3.0,14.1,31.8,69.7,76.3,82.2,6.8],[34,2018,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,4.6,10.5,73.7,71.7,89.1,74.7,4.8],[35,2018,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,7.1,7.0,26.3,100.1,95.0,62.9,12.3],[36,2018,4,&quot;Enterprise&quot;,&quot;gdpr_compliance_data_lifecycle&quot;,&quot;Data_Management_Office&quot;,3.3,6.9,84.7,51.7,78.9,70.0,12.6],[1,2016,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,20.2,14.9,228.5,5.0,42.0,12.6,26.6],[2,2016,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,13.4,16.9,217.9,5.0,39.5,10.2,28.6],[3,2016,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,20.1,15.4,278.6,5.0,36.2,19.9,26.2],[4,2016,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,20.2,13.8,193.5,5.0,38.9,40.8,25.6],[5,2016,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,16.2,17.0,211.7,18.5,56.3,19.9,23.6],[6,2016,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,19.4,19.3,242.4,20.9,46.9,24.0,18.7],[7,2016,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,9.6,15.0,254.5,38.1,47.9,24.7,24.6],[8,2016,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,13.2,8.5,226.3,26.1,44.8,25.7,16.7],[9,2016,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,10.6,12.0,230.8,5.0,52.8,33.2,23.3],[10,2016,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,8.3,12.9,179.1,31.0,45.5,43.2,16.2],[11,2016,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,11.8,16.5,257.5,16.4,53.7,27.6,11.9],[12,2016,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,19.2,11.1,223.9,21.9,58.7,38.7,21.4],[13,2017,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,9.7,15.5,224.3,5.0,55.5,23.2,22.6],[14,2017,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,11.9,19.9,234.6,16.0,55.8,28.7,21.8],[15,2017,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,15.5,2.0,221.4,24.4,51.1,34.3,16.0],[16,2017,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,12.1,10.4,199.3,17.8,47.1,39.2,7.9],[17,2017,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,10.3,11.8,199.5,5.0,56.7,28.7,18.4],[18,2017,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,6.3,10.9,191.8,31.7,51.2,21.5,14.5],[19,2017,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,11.7,12.5,175.4,28.7,69.8,47.1,8.6],[20,2017,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,9.9,12.8,202.2,7.5,62.1,49.2,18.2],[21,2017,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,9.3,11.0,173.8,13.9,35.7,38.4,12.9],[22,2017,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,7.9,4.3,170.7,20.7,78.2,39.3,20.2],[23,2017,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,10.1,2.8,204.1,25.2,60.9,63.2,14.1],[24,2017,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,12.5,3.5,178.0,9.0,66.3,44.6,14.7],[25,2018,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,5.9,8.2,193.0,31.7,63.0,55.8,7.2],[26,2018,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,7.5,6.5,149.4,23.7,59.3,50.6,12.0],[27,2018,1,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,4.9,8.0,196.0,5.0,90.9,41.4,6.3],[28,2018,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,10.0,2.0,183.9,5.0,59.6,79.2,11.2],[29,2018,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,7.8,2.0,173.7,15.4,88.6,74.9,2.8],[30,2018,2,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,9.2,3.7,165.0,17.4,73.3,50.0,18.8],[31,2018,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,3.2,5.4,175.6,5.0,70.1,33.0,11.7],[32,2018,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,5.8,4.9,188.1,5.0,67.5,48.8,14.2],[33,2018,3,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,6.0,2.0,179.5,10.7,77.4,72.2,11.6],[34,2018,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,4.5,7.6,177.8,27.7,76.8,81.3,9.3],[35,2018,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,3.0,6.7,205.6,13.6,89.8,64.8,2.0],[36,2018,4,&quot;Enterprise&quot;,&quot;data_lake_infrastructure&quot;,&quot;Data_Engineering&quot;,8.2,4.7,164.0,6.6,75.1,61.7,3.6]];
+const F = [&#x27;month&#x27;,&#x27;year&#x27;,&#x27;quarter&#x27;,&#x27;line&#x27;,&#x27;init&#x27;,&#x27;unit&#x27;,&#x27;appr&#x27;,&#x27;access&#x27;,&#x27;hg&#x27;,&#x27;ha&#x27;,&#x27;dq&#x27;,&#x27;meta&#x27;,&#x27;dup&#x27;];
+const DATA = RAW.map(r =&gt; Object.fromEntries(F.map((k,i)=&gt;[k,r[i]])));
+
+const LINES = {P_C:&#x27;Propiedad y Accidentes&#x27;,Protection_Health:&#x27;Protección y Salud&#x27;,Savings_Asset_Mgmt:&#x27;Ahorro y Gestión de Activos&#x27;,Enterprise:&#x27;Transversal (empresa)&#x27;};
+const UNITS = {Data_Analytics:&#x27;Analítica de Datos&#x27;,Data_Management_Office:&#x27;Oficina de Gestión de Datos&#x27;,Data_Engineering:&#x27;Ingeniería de Datos&#x27;};
+const INITS = {fraud_detection:&#x27;Detección de fraude&#x27;,geospatial_claims:&#x27;Siniestros geoespaciales&#x27;,dynamic_pricing:&#x27;Tarificación dinámica&#x27;,claims_automation:&#x27;Automatización de siniestros&#x27;,customer_dialog_system:&#x27;Diálogo con clientes (IA)&#x27;,flood_risk_modeling:&#x27;Riesgo de inundación&#x27;,cross_selling_retention:&#x27;Venta cruzada y retención&#x27;,chronic_disease_prevention:&#x27;Prevención de crónicas&#x27;,customer_segmentation:&#x27;Segmentación de clientes&#x27;,gdpr_compliance_data_lifecycle:&#x27;Ciclo de vida GDPR&#x27;,data_lake_infrastructure:&#x27;Lago de datos&#x27;};
+
+const QUARTERS = [];
+for (const y of [2016,2017,2018]) for (const q of [1,2,3,4]) QUARTERS.push({y,q,key:y+&#x27;-&#x27;+q,label:&#x27;T&#x27;+q+&#x27; &#x27;+y});
+
+const KPIS = [
+  { id:&#x27;appr&#x27;, who:&#x27;Grupo de trabajo de cumplimiento y riesgo&#x27;, title:&#x27;Ciclo de aprobación de acceso&#x27;,
+    q:&#x27;¿Cuántos días tarda una solicitud de datos en recibir decisión?&#x27;, unit:&#x27;días&#x27;, dec:1, target:7, warn:10, lowerBetter:true, max:22,
+    agg: rs =&gt; mean(rs.map(r=&gt;r.appr)),
+    support: rs =&gt; [[&#x27;Tiempo hasta acceder a los datos&#x27;, fmt(mean(rs.map(r=&gt;r.access)),1)+&#x27; días&#x27;]] },
+  { id:&#x27;share&#x27;, who:&#x27;Analítica de Datos e Ingeniería de Datos&#x27;, title:&#x27;Tiempo de análisis de los científicos&#x27;,
+    q:&#x27;¿Qué parte de sus horas dedican a analizar y no a recolectar datos?&#x27;, unit:&#x27;%&#x27;, dec:0, target:60, warn:45, lowerBetter:false, max:100,
+    agg: rs =&gt; { const a=sum(rs.map(r=&gt;r.ha)), g=sum(rs.map(r=&gt;r.hg)); return (a+g)? a/(a+g)*100 : null; },
+    support: rs =&gt; [[&#x27;Horas de recolección / iniciativa-mes&#x27;, fmt(mean(rs.map(r=&gt;r.hg)),0)+&#x27; h&#x27;]] },
+  { id:&#x27;dq&#x27;, who:&#x27;Oficina de Gestión de Datos&#x27;, title:&#x27;Índice de calidad de datos&#x27;,
+    q:&#x27;¿Qué tan exactos, completos y consistentes son los datos que se usan?&#x27;, unit:&#x27;/ 100&#x27;, dec:1, target:85, warn:70, lowerBetter:false, max:100,
+    agg: rs =&gt; mean(rs.map(r=&gt;r.dq)),
+    support: rs =&gt; [[&#x27;Metadatos documentados&#x27;, fmt(mean(rs.map(r=&gt;r.meta)),0)+&#x27; %&#x27;],[&#x27;Registros duplicados&#x27;, fmt(mean(rs.map(r=&gt;r.dup)),1)+&#x27; %&#x27;]] }
+];
+
+function sum(a){return a.reduce((s,x)=&gt;s+x,0)}
+function mean(a){return a.length? sum(a)/a.length : null}
+function fmt(v,d){return v==null||isNaN(v)?&#x27;—&#x27;:v.toLocaleString(&#x27;es&#x27;,{minimumFractionDigits:d,maximumFractionDigits:d})}
+function status(k,v){
+  if(v==null) return &#x27;na&#x27;;
+  if(k.lowerBetter) return v&lt;=k.target?&#x27;ok&#x27;:v&lt;=k.warn?&#x27;warn&#x27;:&#x27;bad&#x27;;
+  return v&gt;=k.target?&#x27;ok&#x27;:v&gt;=k.warn?&#x27;warn&#x27;:&#x27;bad&#x27;;
+}
+const STATUS_TXT = {ok:&#x27;En meta&#x27;,warn:&#x27;En vigilancia&#x27;,bad:&#x27;Fuera de meta&#x27;,na:&#x27;Sin datos&#x27;};
+
+const state = {line:&#x27;all&#x27;,unit:&#x27;all&#x27;,init:&#x27;all&#x27;,cut:&#x27;2018-4&#x27;,tab:&#x27;appr&#x27;};
+
+const $ = id =&gt; document.getElementById(id);
+function opt(sel, entries, value){
+  sel.innerHTML = entries.map(([v,t])=&gt;`&lt;option value=&quot;${v}&quot;&gt;${t}&lt;/option&gt;`).join(&#x27;&#x27;);
+  sel.value = value;
+}
+function filtered(ignoreLine){
+  return DATA.filter(r =&gt; (ignoreLine||state.line===&#x27;all&#x27;||r.line===state.line) &amp;&amp; (state.unit===&#x27;all&#x27;||r.unit===state.unit) &amp;&amp; (state.init===&#x27;all&#x27;||r.init===state.init));
+}
+function inQ(rs,qk){const [y,q]=qk.split(&#x27;-&#x27;).map(Number);return rs.filter(r=&gt;r.year===y&amp;&amp;r.quarter===q)}
+function qLabel(k){return QUARTERS.find(q=&gt;q.key===k).label}
+function prevYearKey(k){const [y,q]=k.split(&#x27;-&#x27;).map(Number);return (y-1)+&#x27;-&#x27;+q}
+
+function buildFilters(){
+  opt($(&#x27;fLine&#x27;),[[&#x27;all&#x27;,&#x27;Todas&#x27;],...Object.entries(LINES)],state.line);
+  opt($(&#x27;fUnit&#x27;),[[&#x27;all&#x27;,&#x27;Todas&#x27;],...Object.entries(UNITS)],state.unit);
+  const avail = new Set(DATA.filter(r=&gt;(state.line===&#x27;all&#x27;||r.line===state.line)&amp;&amp;(state.unit===&#x27;all&#x27;||r.unit===state.unit)).map(r=&gt;r.init));
+  if(state.init!==&#x27;all&#x27; &amp;&amp; !avail.has(state.init)) state.init=&#x27;all&#x27;;
+  opt($(&#x27;fInit&#x27;),[[&#x27;all&#x27;,&#x27;Todas&#x27;],...Object.entries(INITS).filter(([k])=&gt;avail.has(k))],state.init);
+  opt($(&#x27;fCut&#x27;),QUARTERS.map(q=&gt;[q.key,q.label]),state.cut);
+}
+
+/* ---------- bullet chart ---------- */
+function bullet(k,v,prev){
+  const W=320,H=34,x=s=&gt;Math.max(0,Math.min(W,s/k.max*W));
+  let bands;
+  if(k.lowerBetter) bands=[[0,k.target,&#x27;ok&#x27;],[k.target,k.warn,&#x27;warn&#x27;],[k.warn,k.max,&#x27;bad&#x27;]];
+  else bands=[[0,k.warn,&#x27;bad&#x27;],[k.warn,k.target,&#x27;warn&#x27;],[k.target,k.max,&#x27;ok&#x27;]];
+  let s=`&lt;svg viewBox=&quot;0 0 ${W} ${H}&quot; role=&quot;img&quot; aria-label=&quot;Valor ${fmt(v,k.dec)} frente a meta ${k.target}&quot;&gt;`;
+  bands.forEach(([a,b,c])=&gt;{s+=`&lt;rect x=&quot;${x(a)}&quot; y=&quot;6&quot; width=&quot;${x(b)-x(a)}&quot; height=&quot;14&quot; fill=&quot;var(--${c}-band)&quot;/&gt;`});
+  if(prev!=null) s+=`&lt;rect x=&quot;${x(prev)-1.5}&quot; y=&quot;4&quot; width=&quot;3&quot; height=&quot;18&quot; fill=&quot;var(--muted)&quot; opacity=&quot;.55&quot;&gt;&lt;title&gt;Mismo trimestre año anterior: ${fmt(prev,k.dec)}&lt;/title&gt;&lt;/rect&gt;`;
+  if(v!=null) s+=`&lt;rect x=&quot;0&quot; y=&quot;10&quot; width=&quot;${x(v)}&quot; height=&quot;6&quot; fill=&quot;var(--ink)&quot;/&gt;&lt;circle cx=&quot;${x(v)}&quot; cy=&quot;13&quot; r=&quot;5&quot; fill=&quot;var(--ink)&quot;/&gt;`;
+  s+=`&lt;line x1=&quot;${x(k.target)}&quot; x2=&quot;${x(k.target)}&quot; y1=&quot;1&quot; y2=&quot;25&quot; stroke=&quot;var(--accent)&quot; stroke-width=&quot;2.5&quot;/&gt;`;
+  s+=`&lt;text x=&quot;${x(k.target)}&quot; y=&quot;33&quot; text-anchor=&quot;middle&quot; font-size=&quot;10&quot; fill=&quot;var(--accent)&quot; font-weight=&quot;700&quot;&gt;meta ${k.target}&lt;/text&gt;`;
+  s+=`&lt;text x=&quot;0&quot; y=&quot;33&quot; font-size=&quot;10&quot; fill=&quot;var(--muted)&quot;&gt;0&lt;/text&gt;&lt;text x=&quot;${W}&quot; y=&quot;33&quot; text-anchor=&quot;end&quot; font-size=&quot;10&quot; fill=&quot;var(--muted)&quot;&gt;${k.max}&lt;/text&gt;`;
+  return s+&#x27;&lt;/svg&gt;&#x27;;
+}
+
+/* ---------- trend chart ---------- */
+function trend(k,rs){
+  const W=320,H=130,pl=28,pr=6,pt=8,pb=20;
+  const vals = QUARTERS.map(q=&gt;{const sub=inQ(rs,q.key);return sub.length?k.agg(sub):null});
+  const nums = vals.filter(v=&gt;v!=null);
+  let lo=Math.min(k.target,...nums), hi=Math.max(k.target,...nums);
+  const pad=(hi-lo)*.15||5; lo=Math.max(0,lo-pad); hi=hi+pad;
+  const X=i=&gt;pl+i*(W-pl-pr)/(QUARTERS.length-1), Y=v=&gt;pt+(hi-v)/(hi-lo)*(H-pt-pb);
+  let s=`&lt;svg viewBox=&quot;0 0 ${W} ${H}&quot; role=&quot;img&quot; aria-label=&quot;Tendencia trimestral de ${k.title}&quot;&gt;`;
+  const ticks=[lo,(lo+hi)/2,hi];
+  s+=&#x27;&lt;g class=&quot;grid axis&quot;&gt;&#x27;+ticks.map(t=&gt;`&lt;line x1=&quot;${pl}&quot; x2=&quot;${W-pr}&quot; y1=&quot;${Y(t)}&quot; y2=&quot;${Y(t)}&quot;/&gt;&lt;text x=&quot;${pl-4}&quot; y=&quot;${Y(t)+3}&quot; text-anchor=&quot;end&quot;&gt;${Math.round(t)}&lt;/text&gt;`).join(&#x27;&#x27;)+&#x27;&lt;/g&gt;&#x27;;
+  // GDPR enforcement: May 2018 = T2 2018 (index 9), place 1/3 into quarter
+  const gx = X(9)+ (X(10)-X(9))*(1/3);
+  s+=`&lt;line x1=&quot;${gx}&quot; x2=&quot;${gx}&quot; y1=&quot;${pt}&quot; y2=&quot;${H-pb}&quot; stroke=&quot;var(--muted)&quot; stroke-dasharray=&quot;2 3&quot;/&gt;&lt;text x=&quot;${gx-3}&quot; y=&quot;${pt+8}&quot; text-anchor=&quot;end&quot; font-size=&quot;9&quot; fill=&quot;var(--muted)&quot;&gt;GDPR&lt;/text&gt;`;
+  s+=`&lt;line x1=&quot;${pl}&quot; x2=&quot;${W-pr}&quot; y1=&quot;${Y(k.target)}&quot; y2=&quot;${Y(k.target)}&quot; stroke=&quot;var(--accent)&quot; stroke-width=&quot;1.5&quot; stroke-dasharray=&quot;5 3&quot;/&gt;`;
+  let d=&#x27;&#x27;,pen=false;
+  vals.forEach((v,i)=&gt;{if(v==null){pen=false;return} d+=(pen?&#x27;L&#x27;:&#x27;M&#x27;)+X(i).toFixed(1)+&#x27; &#x27;+Y(v).toFixed(1)+&#x27; &#x27;;pen=true});
+  s+=`&lt;path d=&quot;${d}&quot; fill=&quot;none&quot; stroke=&quot;var(--ink)&quot; stroke-width=&quot;2&quot;/&gt;`;
+  s+=&#x27;&lt;g class=&quot;axis&quot;&gt;&#x27;+[0,4,8].map(i=&gt;`&lt;text x=&quot;${X(i)}&quot; y=&quot;${H-5}&quot; text-anchor=&quot;start&quot;&gt;${QUARTERS[i].y}&lt;/text&gt;`).join(&#x27;&#x27;)+&#x27;&lt;/g&gt;&#x27;;
+  vals.forEach((v,i)=&gt;{
+    if(v==null) return;
+    const q=QUARTERS[i], sel=q.key===state.cut, st=status(k,v);
+    s+=`&lt;circle class=&quot;pt&quot; tabindex=&quot;0&quot; data-q=&quot;${q.key}&quot; data-tip=&quot;${q.label}: ${fmt(v,k.dec)} ${k.unit} · ${STATUS_TXT[st]}&quot; cx=&quot;${X(i)}&quot; cy=&quot;${Y(v)}&quot; r=&quot;${sel?6:3.5}&quot; fill=&quot;${sel?&#x27;var(--surface)&#x27;:&#x27;var(--&#x27;+st+&#x27;)&#x27;}&quot; stroke=&quot;var(--${st})&quot; stroke-width=&quot;${sel?3:1}&quot;/&gt;`;
+  });
+  return s+&#x27;&lt;/svg&gt;&#x27;;
+}
+
+/* ---------- render ---------- */
+function renderKpis(){
+  const rs=filtered(false), cur=inQ(rs,state.cut), prev=inQ(rs,prevYearKey(state.cut));
+  $(&#x27;cutLabel&#x27;).textContent=qLabel(state.cut);
+  $(&#x27;cutCount&#x27;).textContent=cur.length+&#x27; registros iniciativa-mes&#x27;;
+  $(&#x27;kpis&#x27;).innerHTML = KPIS.map(k=&gt;{
+    const v=cur.length?k.agg(cur):null, p=prev.length?k.agg(prev):null, st=status(k,v);
+    let delta=&#x27;Sin comparación con el año anterior&#x27;;
+    if(v!=null&amp;&amp;p!=null){
+      const dv=v-p, better = k.lowerBetter? dv&lt;0 : dv&gt;0;
+      delta=`&lt;b&gt;${dv&gt;0?&#x27;+&#x27;:&#x27;&#x27;}${fmt(dv,k.dec)}&lt;/b&gt; frente a ${qLabel(prevYearKey(state.cut))} · ${Math.abs(dv)&lt;1e-9?&#x27;sin cambio&#x27;:better?&#x27;mejora&#x27;:&#x27;empeora&#x27;}`;
+    }
+    const gap = v==null?&#x27;&#x27;:(k.lowerBetter? (v&lt;=k.target?&#x27;&#x27;:`faltan ${fmt(v-k.target,k.dec)} ${k.unit} para la meta`) : (v&gt;=k.target?&#x27;&#x27;:`faltan ${fmt(k.target-v,k.dec)} puntos para la meta`));
+    return `&lt;article class=&quot;kpi&quot; aria-labelledby=&quot;h-${k.id}&quot;&gt;
+      &lt;p class=&quot;who&quot;&gt;${k.who}&lt;/p&gt;
+      &lt;h2 id=&quot;h-${k.id}&quot;&gt;${k.title}&lt;/h2&gt;
+      &lt;p class=&quot;q&quot;&gt;${k.q}&lt;/p&gt;
+      &lt;div class=&quot;valrow&quot;&gt;&lt;span class=&quot;val&quot;&gt;${fmt(v,k.dec)}&lt;/span&gt;&lt;span class=&quot;unit&quot;&gt;${k.unit}&lt;/span&gt;&lt;span class=&quot;pill s-${st}&quot;&gt;${STATUS_TXT[st]}&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;delta&quot;&gt;${delta}${gap?&#x27;&lt;br&gt;&#x27;+gap:&#x27;&#x27;}&lt;/div&gt;
+      &lt;div class=&quot;bullet&quot;&gt;${bullet(k,v,p)}&lt;/div&gt;
+      &lt;div class=&quot;trend&quot;&gt;${trend(k,rs)}&lt;/div&gt;
+      &lt;div class=&quot;support&quot;&gt;${cur.length?k.support(cur).map(([a,b])=&gt;`&lt;span&gt;${a}&lt;br&gt;&lt;b&gt;${b}&lt;/b&gt;&lt;/span&gt;`).join(&#x27;&#x27;):&#x27;&lt;span class=&quot;empty&quot;&gt;Sin datos para este trimestre&lt;/span&gt;&#x27;}&lt;/div&gt;
+    &lt;/article&gt;`;
+  }).join(&#x27;&#x27;);
+}
+
+function renderTabs(){
+  $(&#x27;tabs&#x27;).innerHTML = KPIS.map(k=&gt;`&lt;button class=&quot;tab&quot; role=&quot;tab&quot; type=&quot;button&quot; data-tab=&quot;${k.id}&quot; aria-selected=&quot;${state.tab===k.id}&quot;&gt;${k.title}&lt;/button&gt;`).join(&#x27;&#x27;);
+}
+
+function renderBars(){
+  const k=KPIS.find(x=&gt;x.id===state.tab), cur=inQ(filtered(false),state.cut);
+  const groups={}; cur.forEach(r=&gt;(groups[r.init]=groups[r.init]||[]).push(r));
+  let items=Object.entries(groups).map(([i,rs])=&gt;({i,v:k.agg(rs)})).filter(o=&gt;o.v!=null);
+  if(!items.length){$(&#x27;bars&#x27;).innerHTML=&#x27;&lt;p class=&quot;empty&quot;&gt;No hay iniciativas activas con estos filtros en el trimestre seleccionado. Cambie el trimestre de corte o amplíe los filtros.&lt;/p&gt;&#x27;;return}
+  items.sort((a,b)=&gt;k.lowerBetter? a.v-b.v : b.v-a.v);
+  const W=560,lw=190,rh=26,H=items.length*rh+22, maxv=Math.max(k.target*1.25,...items.map(o=&gt;o.v))*1.08;
+  const X=v=&gt;lw+v/maxv*(W-lw-46);
+  let s=`&lt;svg class=&quot;bars&quot; viewBox=&quot;0 0 ${W} ${H}&quot; role=&quot;img&quot; aria-label=&quot;${k.title} por iniciativa&quot;&gt;`;
+  items.forEach((o,n)=&gt;{
+    const y=n*rh, st=status(k,o.v);
+    s+=`&lt;text class=&quot;lbl&quot; x=&quot;${lw-8}&quot; y=&quot;${y+16}&quot; text-anchor=&quot;end&quot;&gt;${INITS[o.i]}&lt;/text&gt;`;
+    s+=`&lt;rect x=&quot;${lw}&quot; y=&quot;${y+5}&quot; width=&quot;${Math.max(2,X(o.v)-lw)}&quot; height=&quot;15&quot; rx=&quot;2&quot; fill=&quot;var(--${st})&quot;&gt;&lt;title&gt;${INITS[o.i]}: ${fmt(o.v,k.dec)} ${k.unit}&lt;/title&gt;&lt;/rect&gt;`;
+    s+=`&lt;text x=&quot;${X(o.v)+6}&quot; y=&quot;${y+16}&quot; font-weight=&quot;700&quot;&gt;${fmt(o.v,k.dec)}&lt;/text&gt;`;
+  });
+  s+=`&lt;line x1=&quot;${X(k.target)}&quot; x2=&quot;${X(k.target)}&quot; y1=&quot;0&quot; y2=&quot;${H-18}&quot; stroke=&quot;var(--accent)&quot; stroke-width=&quot;2&quot; stroke-dasharray=&quot;4 3&quot;/&gt;`;
+  s+=`&lt;text x=&quot;${X(k.target)}&quot; y=&quot;${H-4}&quot; text-anchor=&quot;middle&quot; font-size=&quot;11&quot; fill=&quot;var(--accent)&quot; font-weight=&quot;700&quot;&gt;meta ${k.target} ${k.unit}&lt;/text&gt;`;
+  $(&#x27;bars&#x27;).innerHTML=s+&#x27;&lt;/svg&gt;&#x27;;
+  $(&#x27;barSub&#x27;).textContent=`${k.title}, ${qLabel(state.cut)}. ${k.lowerBetter?&#x27;Menos es mejor.&#x27;:&#x27;Más es mejor.&#x27;} La línea punteada marca la meta.`;
+}
+
+function renderLineTable(){
+  const cur=inQ(filtered(true),state.cut);
+  const rows=Object.keys(LINES).map(l=&gt;{const rs=cur.filter(r=&gt;r.line===l);return {l,rs}}).filter(o=&gt;o.rs.length);
+  if(!rows.length){$(&#x27;lineTable&#x27;).innerHTML=&#x27;&lt;p class=&quot;empty&quot;&gt;Sin registros para esta combinación.&lt;/p&gt;&#x27;;return}
+  let h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Línea&lt;/th&gt;&lt;th&gt;Ciclo (días)&lt;/th&gt;&lt;th&gt;Análisis (%)&lt;/th&gt;&lt;th&gt;Calidad&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  rows.forEach(({l,rs})=&gt;{
+    h+=`&lt;tr${state.line===l?&#x27; style=&quot;font-weight:700&quot;&#x27;:&#x27;&#x27;}&gt;&lt;td&gt;${LINES[l]}&lt;/td&gt;`+KPIS.map(k=&gt;{const v=k.agg(rs);return `&lt;td&gt;&lt;span class=&quot;s-${status(k,v)}&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;&lt;/span&gt;${fmt(v,k.dec)}&lt;/td&gt;`}).join(&#x27;&#x27;)+&#x27;&lt;/tr&gt;&#x27;;
+  });
+  $(&#x27;lineTable&#x27;).innerHTML=h+&#x27;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+}
+
+function renderReading(){
+  const rs=filtered(false), cur=inQ(rs,state.cut), first=inQ(rs,&#x27;2016-1&#x27;).length?inQ(rs,&#x27;2016-1&#x27;):null;
+  const out=[];
+  KPIS.forEach(k=&gt;{
+    const v=cur.length?k.agg(cur):null; if(v==null) return;
+    const st=status(k,v);
+    let base=&#x27;&#x27;;
+    if(first){const b=k.agg(first); base=` (T1 2016: ${fmt(b,k.dec)})`;}
+    out.push(`&lt;li&gt;&lt;b&gt;${k.title}:&lt;/b&gt; ${fmt(v,k.dec)} ${k.unit}${base}. ${st===&#x27;ok&#x27;?&#x27;Cumple la meta.&#x27;:st===&#x27;warn&#x27;?&#x27;Cerca de la meta; mantener seguimiento.&#x27;:&#x27;Lejos de la meta; requiere acción.&#x27;}&lt;/li&gt;`);
+  });
+  // worst initiative on the most off-target KPI
+  const offs=KPIS.map(k=&gt;({k,v:cur.length?k.agg(cur):null})).filter(o=&gt;o.v!=null&amp;&amp;status(o.k,o.v)!==&#x27;ok&#x27;);
+  if(offs.length){
+    const k=offs[0].k, g={}; cur.forEach(r=&gt;(g[r.init]=g[r.init]||[]).push(r));
+    const it=Object.entries(g).map(([i,r])=&gt;({i,v:k.agg(r)})).sort((a,b)=&gt;k.lowerBetter?b.v-a.v:a.v-b.v)[0];
+    if(it) out.push(`&lt;li&gt;Prioridad sugerida: &lt;b&gt;${INITS[it.i]}&lt;/b&gt; es la iniciativa más rezagada en ${k.title.toLowerCase()} (${fmt(it.v,k.dec)} ${k.unit}).&lt;/li&gt;`);
+  }
+  $(&#x27;reading&#x27;).innerHTML=out.join(&#x27;&#x27;)||&#x27;&lt;li class=&quot;empty&quot;&gt;Sin datos para este corte.&lt;/li&gt;&#x27;;
+}
+
+function render(){buildFilters();renderKpis();renderTabs();renderBars();renderLineTable();renderReading()}
+
+/* ---------- events ---------- */
+$(&#x27;fLine&#x27;).addEventListener(&#x27;change&#x27;,e=&gt;{state.line=e.target.value;render()});
+$(&#x27;fUnit&#x27;).addEventListener(&#x27;change&#x27;,e=&gt;{state.unit=e.target.value;render()});
+$(&#x27;fInit&#x27;).addEventListener(&#x27;change&#x27;,e=&gt;{state.init=e.target.value;render()});
+$(&#x27;fCut&#x27;).addEventListener(&#x27;change&#x27;,e=&gt;{state.cut=e.target.value;render()});
+$(&#x27;reset&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{Object.assign(state,{line:&#x27;all&#x27;,unit:&#x27;all&#x27;,init:&#x27;all&#x27;,cut:&#x27;2018-4&#x27;});render()});
+$(&#x27;tabs&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const t=e.target.closest(&#x27;[data-tab]&#x27;);if(t){state.tab=t.dataset.tab;renderTabs();renderBars()}});
+
+const tip=$(&#x27;tip&#x27;);
+document.addEventListener(&#x27;mouseover&#x27;,e=&gt;{const p=e.target.closest(&#x27;[data-tip]&#x27;);if(p){tip.textContent=p.dataset.tip;tip.style.opacity=1}});
+document.addEventListener(&#x27;mousemove&#x27;,e=&gt;{tip.style.left=Math.min(e.clientX+12,innerWidth-250)+&#x27;px&#x27;;tip.style.top=(e.clientY+14)+&#x27;px&#x27;});
+document.addEventListener(&#x27;mouseout&#x27;,e=&gt;{if(e.target.closest(&#x27;[data-tip]&#x27;))tip.style.opacity=0});
+function pick(e){const p=e.target.closest(&#x27;.pt&#x27;);if(p){state.cut=p.dataset.q;tip.style.opacity=0;render()}}
+document.addEventListener(&#x27;click&#x27;,pick);
+document.addEventListener(&#x27;keydown&#x27;,e=&gt;{if((e.key===&#x27;Enter&#x27;||e.key===&#x27; &#x27;)&amp;&amp;e.target.classList&amp;&amp;e.target.classList.contains(&#x27;pt&#x27;)){e.preventDefault();pick(e)}});
+
+$(&#x27;dl&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{
+  const rs=filtered(false);
+  const head=[&#x27;trimestre&#x27;,&#x27;registros&#x27;,&#x27;ciclo_aprobacion_dias&#x27;,&#x27;estado_ciclo&#x27;,&#x27;tiempo_analisis_pct&#x27;,&#x27;estado_analisis&#x27;,&#x27;calidad_datos&#x27;,&#x27;estado_calidad&#x27;];
+  const lines=[head.join(&#x27;,&#x27;)];
+  QUARTERS.forEach(q=&gt;{const sub=inQ(rs,q.key);if(!sub.length)return;
+    const row=[q.label,sub.length];KPIS.forEach(k=&gt;{const v=k.agg(sub);row.push(v.toFixed(2),STATUS_TXT[status(k,v)])});lines.push(row.join(&#x27;,&#x27;));});
+  const meta=`# Filtros: linea=${state.line}; unidad=${state.unit}; iniciativa=${state.init}`;
+  const blob=new Blob([&#x27;\ufeff&#x27;+meta+&#x27;\n&#x27;+lines.join(&#x27;\n&#x27;)],{type:&#x27;text/csv;charset=utf-8&#x27;});
+  const a=document.createElement(&#x27;a&#x27;);a.href=URL.createObjectURL(blob);a.download=&#x27;AXA_KPI_resumen_trimestral.csv&#x27;;document.body.appendChild(a);a.click();a.remove();
+});
+
+render();
+&lt;/script&gt;
+
+&lt;script&gt;
+/* Puente con el portafolio: tema, altura automática, redibujo y menú contextual */
+(function(){
+  const post = (m) =&gt; { try { parent.postMessage(Object.assign({source:&#x27;dash-axa&#x27;}, m), &#x27;*&#x27;); } catch(e){} };
+  let last = 0;
+  const sendH = () =&gt; { const h = Math.ceil(document.documentElement.scrollHeight); if (h !== last) { last = h; post({type:&#x27;height&#x27;, h}); } };
+  new ResizeObserver(sendH).observe(document.body);
+  window.addEventListener(&#x27;load&#x27;, sendH);
+  window.addEventListener(&#x27;message&#x27;, (e) =&gt; {
+    if (e.source !== parent || !e.data || e.data.target !== &#x27;dash-axa&#x27;) return;
+    if (e.data.type === &#x27;theme&#x27;) document.documentElement.dataset.theme = e.data.dark ? &#x27;dark&#x27; : &#x27;light&#x27;;
+    if (e.data.type === &#x27;rerun&#x27; &amp;&amp; typeof render === &#x27;function&#x27;) render();
+  });
+  document.addEventListener(&#x27;contextmenu&#x27;, (e) =&gt; {
+    if (e.target.closest(&#x27;input, textarea, select&#x27;)) return;
+    e.preventDefault(); post({type:&#x27;ctx&#x27;, x:e.clientX, y:e.clientY});
+  });
+  document.addEventListener(&#x27;click&#x27;, () =&gt; post({type:&#x27;close&#x27;}));
+  document.addEventListener(&#x27;keydown&#x27;, (e) =&gt; { if (e.key === &#x27;Escape&#x27;) post({type:&#x27;close&#x27;}); });
+  post({type:&#x27;ready&#x27;});
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+        </div>
+        <div class="detail-body">
+          <div>
+            <h3>Descripción</h3>
+            <p class="muted">Vigila las “dos velocidades” del laboratorio de datos de AXA Alemania con tres KPIs y semáforo: el ciclo de aprobación de cumplimiento, la proporción del tiempo que los científicos de datos dedican a analizar y la calidad de los datos que usan. Se filtra por línea de negocio, unidad líder, iniciativa y trimestre de corte, y al hacer clic en un punto de la tendencia cambia el trimestre analizado.</p>
+          </div>
+          <aside>
+            <div><span>Rol</span>Diseño y desarrollo</div>
+            <div><span>Tecnología</span>JavaScript y SVG, sin librerías</div>
+            <div><span>Datos</span>339 registros mensuales de 11 iniciativas, 2016–2018</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- ============ CONTACTO ============ -->
   <div class="view" id="view-contacto">
     <div class="page-head">
@@ -4465,7 +4936,7 @@ dash.calc('fases', {
     {id:"fcc", title:"Dashboard FCC", desc:"Evolución digital de Huawei y FCC, con un simulador que predice el sentimiento cultural de los empleados.", tags:["D3.js","Modelo predictivo"], bars:[40,55,62,70,78,84]},
     {id:"rapsd", title:"Dashboard RAPSD", desc:"Tres KPIs de innovación centrada en el cliente para la app myRAzept de RAPS: satisfacción, adopción digital y retención.", tags:["Chart.js","KPIs","Clientes"], bars:[70,45,60,38,52,30]},
     {id:"vertrieb", title:"Dashboard Vertrieb", desc:"Agilidad operativa y OKR de la TI de DB Vertrieb (2005–2018), con un analista IA que interpreta los datos.", tags:["D3.js","OKR","Analista IA"], bars:[35,35,60,60,80,80]},
-    {id:"asistente", title:"Asistente con IA para documentos", desc:"Consulta en lenguaje natural sobre contratos y políticas internas, con referencias a la fuente.", tags:["LLM","Documentos"], bars:[20,45,35,65,55,85]},
+    {id:"axa", title:"Dashboard AXA", desc:"Tres KPIs de innovación basada en datos para el Data Innovation Lab de AXA Alemania: cumplimiento, análisis y calidad de datos.", tags:["SVG","KPIs","Datos"], bars:[20,45,35,65,55,85]},
     {id:"propuestas", title:"Generador de propuestas comerciales", desc:"Cálculo de tarifas y armado de propuestas de energía a partir de datos de consumo.", tags:["Energía","Ventas"], bars:[50,62,48,74,66,88]}
   ];
 
@@ -4476,7 +4947,7 @@ dash.calc('fases', {
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
       <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
-      ${p.featured||["fcc","rapsd","vertrieb"].includes(p.id)?'<span class="open-hint">Ver dashboard</span>':''}
+      ${p.featured||["fcc","rapsd","vertrieb","axa"].includes(p.id)?'<span class="open-hint">Ver dashboard</span>':''}
     </button>`).join("");
 
   grid.addEventListener("click", e => {
@@ -4488,12 +4959,13 @@ dash.calc('fases', {
     else if(id === "fcc") go("dashboard-fcc");
     else if(id === "rapsd") go("dashboard-rapsd");
     else if(id === "vertrieb") go("dashboard-vertrieb");
+    else if(id === "axa") go("dashboard-axa");
     else toast("El detalle de este proyecto estará disponible pronto.");
   }
 
   /* ---------- Router (#inicio, #proyectos, #contacto, #dashboard) ---------- */
-  const views = ["inicio","proyectos","contacto","dashboard","dashboard-fcc","dashboard-rapsd","dashboard-vertrieb"];
-  const titles = {inicio:"Inicio",proyectos:"Proyectos",contacto:"Contacto",dashboard:"Huawei_Dashboard_interactivo","dashboard-fcc":"Dashboard FCC","dashboard-rapsd":"Dashboard RAPSD","dashboard-vertrieb":"Dashboard Vertrieb"};
+  const views = ["inicio","proyectos","contacto","dashboard","dashboard-fcc","dashboard-rapsd","dashboard-vertrieb","dashboard-axa"];
+  const titles = {inicio:"Inicio",proyectos:"Proyectos",contacto:"Contacto",dashboard:"Huawei_Dashboard_interactivo","dashboard-fcc":"Dashboard FCC","dashboard-rapsd":"Dashboard RAPSD","dashboard-vertrieb":"Dashboard Vertrieb","dashboard-axa":"Dashboard AXA"};
   let current = "inicio";
   const dashTabs = ["resumen","cliente","agilidad","datos","terminos"];
   function go(name, push=true){
@@ -4514,6 +4986,7 @@ dash.calc('fases', {
     if(name === "dashboard-fcc") requestAnimationFrame(() => sendFcc({type:"rerun"}));
     if(name === "dashboard-rapsd") requestAnimationFrame(() => sendFrame("raps-frame","dash-raps",{type:"rerun"}));
     if(name === "dashboard-vertrieb") requestAnimationFrame(() => sendFrame("vertrieb-frame","dash-vertrieb",{type:"rerun"}));
+    if(name === "dashboard-axa") requestAnimationFrame(() => sendFrame("axa-frame","dash-axa",{type:"rerun"}));
   }
   document.addEventListener("click", e => {
     const t = e.target.closest("[data-nav]");
@@ -4544,6 +5017,7 @@ dash.calc('fases', {
     sendFcc({type:"theme", dark: isDark()});
     sendFrame("raps-frame","dash-raps",{type:"theme", dark: isDark()});
     sendFrame("vertrieb-frame","dash-vertrieb",{type:"theme", dark: isDark()});
+    sendFrame("axa-frame","dash-axa",{type:"theme", dark: isDark()});
     try{ localStorage.setItem("rm-theme", next); }catch(e){}
     toast(next === "dark" ? "Tema oscuro activado" : "Tema claro activado");
   }
@@ -4705,6 +5179,18 @@ dash.calc('fases', {
     if(d.type === "close"){ closeMenu(); }
   });
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => sendFrame("vertrieb-frame","dash-vertrieb",{type:"theme", dark: isDark()}));
+
+  /* ---------- Puente con el dashboard AXA (iframe) ---------- */
+  window.addEventListener("message", e => {
+    const fr = document.getElementById("axa-frame");
+    if(!fr || e.source !== fr.contentWindow || !e.data || e.data.source !== "dash-axa") return;
+    const d = e.data;
+    if(d.type === "ready"){ sendFrame("axa-frame","dash-axa",{type:"theme", dark: isDark()}); }
+    if(d.type === "height" && d.h > 200){ fr.style.height = d.h + "px"; }
+    if(d.type === "ctx"){ const r = fr.getBoundingClientRect(); openMenu(r.left + d.x, r.top + d.y, fr); }
+    if(d.type === "close"){ closeMenu(); }
+  });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => sendFrame("axa-frame","dash-axa",{type:"theme", dark: isDark()}));
   (function(){
     const btn = document.getElementById("vertriebFull"), wrap = document.getElementById("vertriebWrap");
     if(!btn || !wrap) return;
